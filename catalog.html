@@ -13,13 +13,16 @@
   <header class="main-header">
     <div class="top-header">
       <div class="container clearfix">
-        <a class="main-logo" href="index.html">Техномарт</a><form class="top-header-search" action="http://echo.htmlacademy.ru" method="get">
-          <input type="search" name="search" id="search" placeholder="Поиск:" required>
-          <label for="search"></label>
-        </form>
+        <a class="main-logo" href="index.html">Техномарт</a>
+        <div class="top-header-items clearfix">
+          <form class="top-header-search" action="http://echo.htmlacademy.ru" method="get">
+            <input type="search" name="search" id="search" placeholder="Поиск:" required>
+            <label for="search"></label>
+          </form>
           <a class="top-header-bookmarks" href="#">Закладки: 0</a>
           <a class="top-header-cart not-empty" href="#">Корзина: 10</a>
           <a class="top-header-order" href="#">Оформить заказ</a>
+        </div>
        </div>
     </div>
     <div class="container clearfix">
@@ -73,12 +76,16 @@
             <h2>Фильтр:</h2>
             <fieldset class="catalog-filter filter-price">
               <legend>Цена:</legend>
-              <div class="catalog-filter-controls">
-                <input type="range" min="0" max="20000">
+              <div class="catalog-range-controls">
+                <div class="scale">
+                  <div style="margin-left:0px;margin-right:45px" class="bar"></div>
+                  <div class="toggle min-toggle"></div>
+                  <div class="toggle max-toggle"></div>
+                </div>
               </div>
-              <input type="text" placeholder="0">
+              <input type="text" name="min-price" placeholder="0">
               <span>&mdash;</span>
-              <input type="text" placeholder="20000">
+              <input type="text" name="max-price" placeholder="30000">
             </fieldset>
             <fieldset class="catalog-filter">
               <legend>Производители:</legend>

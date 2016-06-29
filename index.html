@@ -14,14 +14,16 @@
     <div class="top-header">
       <div class="container clearfix">
         <a class="main-logo" href="index.html">Техномарт</a>
-        <form class="top-header-search" action="http://echo.htmlacademy.ru" method="get">
-          <input type="search" name="search" id="search" placeholder="Поиск:" required>
-          <label for="search"></label>
-        </form>
+        <div class="top-header-items clearfix">
+          <form class="top-header-search" action="http://echo.htmlacademy.ru" method="get">
+            <input type="search" name="search" id="search" placeholder="Поиск:" required>
+            <label for="search"></label>
+          </form>
           <a class="top-header-bookmarks" href="#">Закладки: 0</a>
-          <a class="top-header-cart" href="#">Корзина: 0</a>
+          <a class="top-header-cart not-empty" href="#">Корзина: 0</a>
           <a class="top-header-order" href="#">Оформить заказ</a>
-       </div>
+        </div>
+      </div>
     </div>
     <div class="container clearfix">
       <div class="middle-header clearfix">
@@ -72,23 +74,29 @@
             <a class="left-arrow" href="#prev">&lt;</a>
             <a class="right-arrow" href="#next">&gt;</a>
           </div>
-          <div class="slide">
-            <div class="slide-title">
-              <h2>Перфораторы</h2>
-              <p>Настоящие мужские игрушки</p>
+          <input type="radio" id="btn-1" name="toggle">
+          <input type="radio" id="btn-2" name="toggle" checked>
+          <div class="slider-controls">
+            <label for="btn-1"></label>
+            <label for="btn-2"></label>
+          </div>
+          <div class="slides">
+            <div class="slide">
+              <div class="slide-title">
+                <h2>Перфораторы</h2>
+                <p>Настоящие мужские игрушки</p>
+              </div>
+              <a class="btn slide-btn" href="catalog.html">Открыть каталог</a>
             </div>
-            <a class="btn slide-btn" href="catalog.html">Открыть каталог</a>
-          </div>
-<!--
-          <div class="slide">
-            <div class="slide-title">
-              <h2>Дрели</h2>
-              <p>Соседям на радость!</p>
+            <div class="slide">
+              <div class="slide-title">
+                <h2>Дрели</h2>
+                <p>Соседям на радость!</p>
+              </div>
+              <a class="btn slide-btn" href="catalog.html">Открыть каталог</a>
             </div>
-            <a class="btn slide-btn" href="catalog.html">Открыть каталог</a>
           </div>
--->
-          </div>
+        </div>
         <div class="promo-planes-right">
           <div class="promo-plane discount">
             <h2>Скидки 50%</h2>
@@ -187,19 +195,19 @@
           <h2 class="heading">Сервисы</h2>
           <p class="basetext">Хороший интернет-магазин отличается от плохого не только ценами!<br>Мы стараемся изо всех сил, чтобы сделать ваши покупки приятными.</p>
         </div>
-        <ul class="services-list">
-          <li class="active">
-            Доставка
-          </li>
-          <li><a href="#">Гарантия</a></li>
-          <li><a href="#">Кредит</a></li>
-        </ul>
+        <input type="radio" id="service-1" name="services-list" checked>
+        <input type="radio" id="service-2" name="services-list">
+        <input type="radio" id="service-3" name="services-list">
+        <div class="services-controls">
+          <label for="service-1">Доставка</label>
+          <label for="service-2">Гарантия</label>
+          <label for="service-3">Кредит</label>
+        </div>
         <div class="services-items">
           <div class="services-item">
             <h2>Доставка</h2>
             <p class="basetext">Мы&nbsp;с&nbsp;удовольствием доставим ваш товар прямо<br>к&nbsp;вашему подъезду совершенно бесплатно!<br>Ведь мы&nbsp;неплохо заработаем,<br>поднимая его на&nbsp;ваш на&nbsp;этаж!</p>
           </div>
-<!--
           <div class="services-item">
             <h2>Гарантия</h2>
             <p class="basetext">Если купленный у&nbsp;нас товар поломается или заискрит, а&nbsp;также в&nbsp;случае пожара, спровоцированного его возгоранием, вы&nbsp;всегда можете быть уверены в&nbsp;нашей гарантии. Мы&nbsp;обменяем сгоревший товар на&nbsp;новый. Дом уж&nbsp;восстановите как-нибудь сами.</p>
@@ -209,7 +217,6 @@
             <p class="basetext">Залезть в&nbsp;долговую яму стало проще! Кредитные консультанты придут вам на&nbsp;помощь.</p>
             <a href="#" class="btn services-btn">Отправить заявку</a>
           </div>
--->
         </div>
       </div>
     </section>
@@ -228,13 +235,51 @@
       <div class="index-content-right">
         <h2 class="heading">Контакты</h2>
         <p class="basetext">Вы можете забрать товар сами,<br>заехав в&nbsp;наш офис:</p>
-        <img src="img/contacts-map.jpg" alt="Москва, ул. Строителей, д. 15" width="300" height="158">
+        <a class="open-map" href="#" ><img src="img/contacts-map.jpg" alt="Москва, ул. Строителей, д. 15" width="300" height="158"></a>
         <a href="#" class="btn btn-contact">Заблудились? Напишите нам!</a>
+      </div>
+      <div class="modal-map">
+        <button class="modal-content-close" href="#">Закрыть</button>
       </div>
     </section>
     <div class="clearfix"></div>
   </main>
-  
+
+  <div class="modal-write-us">
+    <button class="modal-content-close" href="#">Закрыть</button>
+    <form class="form-feedback" action="https://echo.htmlacademy.ru" method="post">
+      <div class="form-input-area clearfix">
+        <label>
+          Ваше имя:<br>
+          <input class="input-feedback" type="text" name="name" placeholder="Представьтесь, пожалуйста" required>
+        </label>
+        <label>
+          Ваш e-mail:<br>
+          <input class="input-feedback" type="text" name="e-mail" placeholder="Для отправки ответа" required pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$" title="Например, user@technomart.ru">
+        </label>
+        <label>
+          Текст письма:<br>
+          <textarea class="input-feedback" type="text" name="message" rows="5" placeholder="В свободной форме" required></textarea>
+        </label>
+      </div>
+      <div class="form-submit-area clearfix">
+        <button class="btn btn-submit" type="submit">Отправить</button>
+        <button class="white-btn btn-reset" type="reset">Отмена</button>
+      </div>
+    </form>
+  </div>
+   
+  <div class="modal-cart">
+    <button class="modal-content-close" href="#">Закрыть</button>
+    <div class="cart-content-area clearfix">
+      <p>Товар добавлен в корзину!</p>
+    </div>
+    <div class="cart-submit-area clearfix">
+      <a class="btn btn-checkout" href="#">Оформить заказ</a>
+      <a class="white-btn btn-continue" href="#">Продолжить покупки</a>
+    </div>
+  </div>
+    
   <footer class="main-footer">
     <div class="top-footer">
       <div class="container clearfix">
