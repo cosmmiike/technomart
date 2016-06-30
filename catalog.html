@@ -5,8 +5,8 @@
   <title>Техномарт | Каталог</title>
   <link href='https://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             <label for="search"></label>
           </form>
           <a class="top-header-bookmarks" href="#">Закладки: 0</a>
-          <a class="top-header-cart not-empty" href="#">Корзина: 10</a>
+          <a class="top-header-cart not-empty" href="#">Корзина: <span class="count">10</span></a>
           <a class="top-header-order" href="#">Оформить заказ</a>
         </div>
        </div>
@@ -325,5 +325,49 @@
       </div>
     </div>
   </footer>
+  
+  <div class="modal-map">
+    <div id="yandex-map"></div>
+    <button class="modal-content-close" href="#">Закрыть</button>
+  </div>
+  
+  <div class="modal-write-us">
+    <button class="modal-content-close" href="#">Закрыть</button>
+    <form class="form-feedback" action="https://echo.htmlacademy.ru" method="post">
+      <div class="form-input-area clearfix">
+        <label>
+          Ваше имя:<br>
+          <input class="input-feedback" type="text" name="name" placeholder="Представьтесь, пожалуйста">
+        </label>
+        <label>
+          Ваш e-mail:<br>
+          <input class="input-feedback" type="text" name="e-mail" placeholder="Для отправки ответа">
+        </label>
+        <label>
+          Текст письма:<br>
+          <textarea class="input-feedback" type="text" name="message" rows="5" placeholder="В свободной форме"></textarea>
+        </label>
+      </div>
+      <div class="form-submit-area clearfix">
+        <button class="btn btn-submit" type="submit">Отправить</button>
+        <button class="white-btn btn-reset" type="reset">Отмена</button>
+      </div>
+    </form>
+  </div>
+   
+  
+  <div class="modal-cart">
+    <button class="modal-content-close" href="#">Закрыть</button>
+    <div class="cart-content-area clearfix">
+      <p>Товар добавлен в корзину!</p>
+    </div>
+    <div class="cart-submit-area clearfix">
+      <a class="btn btn-checkout" href="#">Оформить заказ</a>
+      <a class="white-btn btn-continue" href="#">Продолжить покупки</a>
+    </div>
+  </div>
+    
+  <div class="modal-overlay"></div>
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

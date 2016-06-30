@@ -5,8 +5,9 @@
   <title>Техномарт</title>
   <link href='https://fonts.googleapis.com/css?family=Cuprum:400,400italic,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+<!--  <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=rpqWxcwD37osxj9PDeHoWG8GJf2maGD1&width=940&height=446&lang=ru_RU&sourceType=constructor&scroll=true&id=yandex-map"></script>-->
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             <label for="search"></label>
           </form>
           <a class="top-header-bookmarks" href="#">Закладки: 0</a>
-          <a class="top-header-cart not-empty" href="#">Корзина: 0</a>
+          <a class="top-header-cart" href="#">Корзина: <span class="count">0</span></a>
           <a class="top-header-order" href="#">Оформить заказ</a>
         </div>
       </div>
@@ -71,8 +72,8 @@
       <div class="promo-block-bottom clearfix">
         <div class="slider">
           <div class="slider-arrows">
-            <a class="left-arrow" href="#prev">&lt;</a>
-            <a class="right-arrow" href="#next">&gt;</a>
+            <a class="left-arrow" data-direction="prev" href="#">&lt;</a>
+            <a class="right-arrow" data-direction="next" href="#">&gt;</a>
           </div>
           <input type="radio" id="btn-1" name="toggle">
           <input type="radio" id="btn-2" name="toggle" checked>
@@ -235,51 +236,19 @@
       <div class="index-content-right">
         <h2 class="heading">Контакты</h2>
         <p class="basetext">Вы можете забрать товар сами,<br>заехав в&nbsp;наш офис:</p>
-        <a class="open-map" href="#" ><img src="img/contacts-map.jpg" alt="Москва, ул. Строителей, д. 15" width="300" height="158"></a>
+        <a class="open-map" href="#">
+          <img src="img/contacts-map.jpg" alt="Москва, ул. Строителей, д. 15" width="300" height="158">
+        </a>
         <a href="#" class="btn btn-contact">Заблудились? Напишите нам!</a>
       </div>
       <div class="modal-map">
+        <div id="map" class="y-map"></div>
         <button class="modal-content-close" href="#">Закрыть</button>
       </div>
     </section>
     <div class="clearfix"></div>
   </main>
-
-  <div class="modal-write-us">
-    <button class="modal-content-close" href="#">Закрыть</button>
-    <form class="form-feedback" action="https://echo.htmlacademy.ru" method="post">
-      <div class="form-input-area clearfix">
-        <label>
-          Ваше имя:<br>
-          <input class="input-feedback" type="text" name="name" placeholder="Представьтесь, пожалуйста" required>
-        </label>
-        <label>
-          Ваш e-mail:<br>
-          <input class="input-feedback" type="text" name="e-mail" placeholder="Для отправки ответа" required pattern="^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$" title="Например, user@technomart.ru">
-        </label>
-        <label>
-          Текст письма:<br>
-          <textarea class="input-feedback" type="text" name="message" rows="5" placeholder="В свободной форме" required></textarea>
-        </label>
-      </div>
-      <div class="form-submit-area clearfix">
-        <button class="btn btn-submit" type="submit">Отправить</button>
-        <button class="white-btn btn-reset" type="reset">Отмена</button>
-      </div>
-    </form>
-  </div>
-   
-  <div class="modal-cart">
-    <button class="modal-content-close" href="#">Закрыть</button>
-    <div class="cart-content-area clearfix">
-      <p>Товар добавлен в корзину!</p>
-    </div>
-    <div class="cart-submit-area clearfix">
-      <a class="btn btn-checkout" href="#">Оформить заказ</a>
-      <a class="white-btn btn-continue" href="#">Продолжить покупки</a>
-    </div>
-  </div>
-    
+  
   <footer class="main-footer">
     <div class="top-footer">
       <div class="container clearfix">
@@ -347,5 +316,44 @@
       </div>
     </div>
   </footer>
+  
+  <div class="modal-write-us">
+    <button class="modal-content-close" href="#">Закрыть</button>
+    <form class="form-feedback" action="https://echo.htmlacademy.ru" method="post">
+      <div class="form-input-area clearfix">
+        <label>
+          Ваше имя:<br>
+          <input class="input-feedback" type="text" name="name" placeholder="Представьтесь, пожалуйста">
+        </label>
+        <label>
+          Ваш e-mail:<br>
+          <input class="input-feedback" type="text" name="e-mail" placeholder="Для отправки ответа">
+        </label>
+        <label>
+          Текст письма:<br>
+          <textarea class="input-feedback" type="text" name="message" rows="5" placeholder="В свободной форме"></textarea>
+        </label>
+      </div>
+      <div class="form-submit-area clearfix">
+        <button class="btn btn-submit" type="submit">Отправить</button>
+        <button class="white-btn btn-reset" type="reset">Отмена</button>
+      </div>
+    </form>
+  </div>
+   
+  <div class="modal-cart">
+    <button class="modal-content-close" href="#">Закрыть</button>
+    <div class="cart-content-area clearfix">
+      <p>Товар добавлен в корзину!</p>
+    </div>
+    <div class="cart-submit-area clearfix">
+      <a class="btn btn-checkout" href="#">Оформить заказ</a>
+      <a class="white-btn btn-continue" href="#">Продолжить покупки</a>
+    </div>
+  </div>
+    
+  <div class="modal-overlay"></div>
+  <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
